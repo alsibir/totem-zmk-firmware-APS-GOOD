@@ -1,5 +1,6 @@
 # .github/workflows/draw_keymaps.yaml
 # Reusable workflow for drawing and committing an automated keymap diagram
+# for ZMK config repos using https://github.com/caksoylar/keymap-drawer
 name: Draw ZMK keymaps
 
 env:
@@ -10,89 +11,72 @@ on:
     inputs:
       keymap_patterns:
         description: "Path specification for keymaps to be parsed"
-        default: "config/*.keymap"
-        required: false
         type: string
+        default: "config/*.keymap"
       config_path:
         description: "Path to the keymap-drawer configuration file, ignored if non-existent"
-        default: "keymap-drawer/config.yaml"
-        required: false
         type: string
+        default: "keymap-drawer/config.yaml"
       west_config_path:
         description: "Path to the folder containing west.yml, e.g. `config`. Set to empty to skip fetching modules from west.yml"
-        default: "config"
-        required: false
         type: string
+        default: "config"
       output_folder:
         description: "Output folder for SVG and YAML files"
-        default: "keymap-drawer"
-        required: false
         type: string
+        default: "keymap-drawer"
       json_path:
         description: "Path containing <keymap>.json physical layout description files, ignored if non-existent"
-        default: "config"
-        required: false
         type: string
+        default: "config"
       parse_args:
         description: "Map of keyboard names to extra `keymap parse` args, e.g. `corne:'--layer-names Def Lwr Rse Fun'`"
-        default: ""
-        required: false
         type: string
+        default: ""
       draw_args:
         description: "Map of keyboard names to extra `keymap draw` args, e.g. `corne:'-k corne_rotated -l LAYOUT_split_3x5_3'`"
-        default: ""
-        required: false
         type: string
+        default: ""
       extra_keymap_yaml:
         description: "Map of keyboard names to extra keymap YAMLs to be passed to `keymap draw` after the parsed one"
-        default: ""
-        required: false
         type: string
+        default: ""
       commit_message:
         description: "Commit message for updated images. Ignored if `amend_commit` is `true`."
-        default: "keymap-drawer render"
-        required: false
         type: string
+        default: "keymap-drawer render"
       amend_commit:
         description: "Whether to amend the last commit instead of creating a new one"
-        default: true
-        required: false
         type: boolean
+        default: true
       install_branch:
         description: "Install keymap-drawer from a git branch, use empty to install from PyPI"
-        default: ""
-        required: false
         type: string
+        default: ""
       install_repo:
         description: "Install keymap-drawer from a different git remote"
-        default: "https://github.com/caksoylar/keymap-drawer.git"
-        required: false
         type: string
+        default: "https://github.com/caksoylar/keymap-drawer.git"
       install_version:
         description: "Install keymap-drawer from PyPI using the specified version, use empty for latest"
-        default: ""
-        required: false
         type: string
+        default: ""
       destination:
         description: "Add the output files to a commit, as artifacts or both"
-        default: "commit"
-        required: false
         type: string
+        default: "commit"
       artifact_name:
         description: "Name of the produced artifact containing SVG and YAML outputs"
-        default: "keymap_layouts"
-        required: false
         type: string
+        default: "keymap_layouts"
       fail_on_error:
         description: "Fail the action if an error occurs during parse/draw"
-        default: true
-        required: false
         type: boolean
+        default: true
       debug_mode:
         description: "Enable debug mode"
-        default: false
-        required: false
         type: boolean
+        default: false
     outputs:
       drawings:
         description: "Archive with keymap in YAML and drawing in SVG formats"
@@ -128,7 +112,7 @@ jobs:
         if: inputs.west_config_path != ''
         run: |
           west init -l ${{ inputs.west_config_path }}
-          west config --local manifest.project-filter "-zmk,-zephyr"
+          west config --local manifest.project-filter -- "-zmk,-zephyr"
           west update --fetch-opt=--filter=tree:0
 
       - name: Draw keymaps
