@@ -8,7 +8,7 @@ on:
   push:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 1 */2 *' # run every two months to keep artifacts from expiring
+    - cron: '0 0 1 */2 *'
 
 jobs:
   convert-and-store-keymap:
@@ -47,3 +47,4 @@ jobs:
       output_folder: keymap-drawer
       json_path: config
       artifact_name: keymap_layouts
+      destination: artifact
