@@ -1,4 +1,5 @@
 # boards/shields/totem-bt/Kconfig.defconfig
+# boards/shields/totem-bt/Kconfig.defconfig
 # Copyright (c) 2022 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
@@ -6,21 +7,39 @@ if SHIELD_TOTEM_LEFT
 
 config ZMK_KEYBOARD_NAME
     default "TOTEM"
-    
-config ZMK_SPLIT_ROLE_CENTRAL
-    default y
-
-endif
-
-if SHIELD_TOTEM_LEFT || SHIELD_TOTEM_RIGHT
 
 config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
     default y
 
 config ZMK_BLE
     default y
 
+config ZMK_SPLIT_BLE
+    default y
+
 config ZMK_USB
     default y
+
+endif
+
+if SHIELD_TOTEM_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default n
+
+config ZMK_BLE
+    default y
+
+config ZMK_SPLIT_BLE
+    default y
+
+config ZMK_USB
+    default n
 
 endif
