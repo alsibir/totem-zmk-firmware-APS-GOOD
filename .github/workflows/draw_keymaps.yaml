@@ -239,7 +239,8 @@ jobs:
         with:
           name: '${{ inputs.artifact_name }}'
           path: |
-            ${{ join(fromJSON(steps.draw.outputs.artifacts), ' ') }}
+            ${{ inputs.output_folder }}/*.yaml
+            ${{ inputs.output_folder }}/*.svg
 
       - name: Check job success
         if: ${{ !inputs.fail_on_error }}
