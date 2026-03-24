@@ -1,3 +1,4 @@
+# config/west.yml
 manifest:
   remotes:
     - name: zmkfirmware
@@ -5,7 +6,7 @@ manifest:
     - name: urob
       url-base: https://github.com/urob
     - name: carrefinho
-      url-base: https://github.com/bukharovsi
+      url-base: https://github.com/carrefinho
     - name: janpfischer
       url-base: https://github.com/janpfischer
   projects:
@@ -18,9 +19,9 @@ manifest:
       revision: main
     - name: prospector-zmk-module
       remote: carrefinho
-      revision: main
+      revision: feat/new-status-screens
     - name: zmk-dongle-screen
       remote: janpfischer
-      revision: main
+      revision: upgrade-4.1
   self:
     path: config
