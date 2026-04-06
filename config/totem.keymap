@@ -33,25 +33,9 @@
 /* Timeless homerow mods */
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 LB5  // left hand
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4 RB5  // right hand
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2 // thumb cluster for both hands
-
-// proper urob's home row, uncomment it if you are not going to use visual editor
-//#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
-//    ZMK_HOLD_TAP(NAME, \
-//        flavor = "balanced"; \
-//        tapping-term-ms = <280>; \
-//        quick-tap-ms = <QUICK_TAP_MS>; \
-//        require-prior-idle-ms = <150>; \
-//        bindings = <HOLD>, <TAP>; \
-//        hold-trigger-key-positions = <TRIGGER_POS>; \
-//        hold-trigger-on-release; \
-//    )
-//
-//MAKE_HRM(hml, &kp, &kp, KEYS_R THUMBS)  // left-hand HRMs
-//MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
-//MAKE_HRM(hml_layer, &mo, &kp, KEYS_R THUMBS) // switch layer like HRM
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 LB5
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4 RB5
+#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
 
 &mt {
     quick-tap-ms = <100>;
@@ -60,7 +44,7 @@
     tapping-term-ms = <170>;
 };
 
- / {
+/ {
     combos {
         compatible = "zmk,combos";
 
@@ -110,18 +94,6 @@
     };
 
     macros {
-        /**
-         * Temporarily switches to a layer (`&mo`) while a modifier is held.
-         * Analogous to QMK's `LM()`, using a parameterized macro.
-         *
-         * Params:
-         *  1. Layer to switch to
-         *  2. Modifier to press while layer is active
-         *
-         * Example:
-         *  `&lm NUM_LAYER LSHIFT`
-         */
-
         lm: lm {
             compatible = "zmk,behavior-macro-two-param";
             wait-ms = <0>;
@@ -186,13 +158,13 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms  = <25>;
+            tap-ms = <25>;
             bindings
-                = <&macro_press     &kp LALT>
+                = <&macro_press &kp LALT>
                 , <&macro_wait_time 10>
-                , <&macro_tap       &kp LSHFT>
+                , <&macro_tap &kp LSHFT>
                 , <&macro_wait_time 10>
-                , <&macro_release   &kp LALT>
+                , <&macro_release &kp LALT>
                 ;
         };
 
@@ -200,20 +172,18 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms  = <25>;
+            tap-ms = <25>;
             bindings
-                = <&macro_press     &kp LALT>
+                = <&macro_press &kp LALT>
                 , <&macro_wait_time 10>
-                , <&macro_tap       &kp RSHFT>
+                , <&macro_tap &kp RSHFT>
                 , <&macro_wait_time 10>
-                , <&macro_release   &kp LALT>
+                , <&macro_release &kp LALT>
                 ;
         };
     };
 
     behaviors {
-        // this is homerow mod that works identical to urob's one, but this one allows visual editor to understand
-
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -255,7 +225,7 @@
         ru_ef_ctrl: ru_ef_ctrl {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_EF_CTRL";
-            bindings = <&kp LCTRL>, <&kp A>;
+            bindings = <&kp LEFT_CONTROL>, <&kp A>;
 
             #binding-cells = <0>;
             tapping-term-ms = <280>;
@@ -269,7 +239,7 @@
         ru_yeru_alt: ru_yeru_alt {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_YERU_ALT";
-            bindings = <&kp LALT>, <&kp S>;
+            bindings = <&kp LEFT_ALT>, <&kp S>;
 
             #binding-cells = <0>;
             tapping-term-ms = <280>;
@@ -283,7 +253,7 @@
         ru_ve_shift: ru_ve_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_VE_SHIFT";
-            bindings = <&kp LSHFT>, <&kp D>;
+            bindings = <&kp LEFT_SHIFT>, <&kp D>;
 
             #binding-cells = <0>;
             tapping-term-ms = <280>;
@@ -325,7 +295,7 @@
         ru_el_shift: ru_el_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_EL_SHIFT";
-            bindings = <&kp RSHFT>, <&kp K>;
+            bindings = <&kp RIGHT_SHIFT>, <&kp K>;
 
             #binding-cells = <0>;
             tapping-term-ms = <280>;
@@ -353,7 +323,7 @@
         ru_zhe_ctrl: ru_zhe_ctrl {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_ZHE_CTRL";
-            bindings = <&kp RCTRL>, <&kp SEMICOLON>;
+            bindings = <&kp RIGHT_CONTROL>, <&kp SEMICOLON>;
 
             #binding-cells = <0>;
             tapping-term-ms = <280>;
@@ -507,7 +477,7 @@
         ru_yu: ru_yu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp DOT>;
+            bindings = <&kp PERIOD>;
             label = "RU_YU";
         };
 
@@ -524,7 +494,7 @@
         ru_eh_quote: ru_eh_quote {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_EH_QUOTE";
-            bindings = <&kp DOUBLE_QUOTES>, <&kp SQT>;
+            bindings = <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTE>;
 
             #binding-cells = <0>;
             quick-tap-ms = <100>;
@@ -550,10 +520,10 @@
         Russian {
             label = "RU";
             bindings = <
-         &ru_yot       &ru_tse           &ru_u         &ru_ka         &ru_ie      &ru_en   &ru_ghe         &ru_sha         &ru_shcha       &ru_ze
-         &ru_ef_ctrl   &ru_yeru_alt      &ru_ve_shift  &ru_a_gui      &ru_pe      &ru_er   &ru_o_gui       &ru_el_shift    &ru_de_alt      &ru_zhe_ctrl
-&kp TAB  &ru_ya        &ru_che           &ru_es        &ru_em         &ru_i       &ru_te   &ru_soft        &ru_be          &ru_yu          &ru_dot_comment  &ru_eh_quote
-                                    &mo DIG       &lt NAV ESC      &kp SPACE    &kp RET  &lt SYS ESC       &mo DIG
+         &ru_yot      &ru_tse       &ru_u         &ru_ka        &ru_ie      &ru_en   &ru_ghe        &ru_sha        &ru_shcha      &ru_ze
+         &ru_ef_ctrl  &ru_yeru_alt  &ru_ve_shift  &ru_a_gui     &ru_pe      &ru_er   &ru_o_gui      &ru_el_shift   &ru_de_alt     &ru_zhe_ctrl
+&kp TAB  &ru_ya       &ru_che       &ru_es        &ru_em        &ru_i       &ru_te   &ru_soft       &ru_be         &ru_yu         &ru_dot_comment  &ru_eh_quote
+                                    &mo DIG       &lt NAV ESC    &kp SPACE   &kp RET  &lt SYS ESC     &mo DIG
             >;
         };
 
@@ -563,7 +533,7 @@
         &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &mmv MOVE_UP           &trans           &trans    &mkp MCLK  &kp HOME      &kp UP    &kp END        &kt PAGE_UP
         &trans                &mmv MOVE_LEFT        &mmv MOVE_DOWN         &mmv MOVE_RIGHT  &trans    &mkp LCLK  &kp LEFT      &kp DOWN  &kp RIGHT      &none
 &trans  &trans                &trans                &trans                 &trans           &trans    &mkp RCLK  &kp LA(LEFT)  &none     &kp LA(RIGHT)  &kt PAGE_DOWN  &kp CAPSLOCK
-                              &trans                &trans                 &trans           &trans     &trans      &trans
+                              &trans                &trans                 &trans           &trans    &trans      &trans
             >;
         };
 
@@ -572,7 +542,7 @@
             bindings = <
         &kp PIPE                &kp DOLLAR             &kp LEFT_BRACE               &kp RIGHT_BRACE                 &press_two_keys GREATER_THAN EQUAL    &kp PLUS   &kp N7  &kp N8  &kp N9  &kp SEMICOLON
         &hml LCTRL EXCLAMATION  &hml LEFT_ALT AT_SIGN  &hml LSHFT LEFT_PARENTHESIS  &lt NAV RIGHT_PARENTHESIS       &press_two_keys MINUS GREATER_THAN    &kp EQUAL  &kp N4  &kp N5  &kp N6  &kp KP_MULTIPLY
-&trans  &kp AMPERSAND           &kp LCTRL              &kp LEFT_BRACKET   &kp RIGHT_BRACKET  &press_two_keys LESS_THAN EQUAL       &kp MINUS  &kp N1  &kp N2  &kp N3  &kp LT           &kp GT
+&trans  &kp AMPERSAND           &kp LCTRL              &kp LEFT_BRACKET             &kp RIGHT_BRACKET               &press_two_keys LESS_THAN EQUAL       &kp MINUS  &kp N1  &kp N2  &kp N3  &kp LT           &kp GT
                                                        &trans                       &trans                          &trans                                &trans     &kp N0  &trans
             >;
         };
