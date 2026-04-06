@@ -49,7 +49,38 @@ draw_config:
 parse_config:
   preprocess: true
   skip_binding_parsing: false
-  raw_binding_map: {}
+  raw_binding_map:
+    "&ru_yot": "Й"
+    "&ru_tse": "Ц"
+    "&ru_u": "У"
+    "&ru_ka": "К"
+    "&ru_ie": "Е"
+    "&ru_en": "Н"
+    "&ru_ghe": "Г"
+    "&ru_sha": "Ш"
+    "&ru_shcha": "Щ"
+    "&ru_ze": "З"
+    "&ru_ef_ctrl": {t: "Ф", h: "Ctl"}
+    "&ru_yeru_alt": {t: "Ы", h: "Alt"}
+    "&ru_ve_shift": {t: "В", h: "Sft"}
+    "&ru_a_gui": {t: "А", h: "Gui"}
+    "&ru_pe": "П"
+    "&ru_er": "Р"
+    "&ru_o_gui": {t: "О", h: "Gui"}
+    "&ru_el_shift": {t: "Л", h: "Sft"}
+    "&ru_de_alt": {t: "Д", h: "AGr"}
+    "&ru_zhe_ctrl": {t: "Ж", h: "Ctl"}
+    "&ru_ya": "Я"
+    "&ru_che": "Ч"
+    "&ru_es": "С"
+    "&ru_em": "М"
+    "&ru_i": "И"
+    "&ru_te": "Т"
+    "&ru_soft": "Ь"
+    "&ru_be": "Б"
+    "&ru_yu": "Ю"
+    "&ru_dot_comment": {t: ".", h: "/*"}
+    "&ru_eh_quote": {t: "Э", h: "Quote"}
   sticky_label: sticky
   toggle_label: toggle
   tap_toggle_label: tap-toggle
