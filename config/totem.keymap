@@ -22,6 +22,7 @@
 #define NAV  1
 #define DIG  2
 #define SYS  3
+#define RU   4
 #define QUICK_TAP_MS 175
 
 #define COMBO_TIMEOUT_LANG_SEL_MS 70
@@ -57,10 +58,6 @@
     global-quick-tap;
     flavor = "tap-preferred";
     tapping-term-ms = <170>;
-};
-
-&soft_off {
-    hold-time-ms = <3000>;
 };
 
  / {
@@ -99,7 +96,7 @@
             timeout-ms = <COMBO_TIMEOUT_LANG_SEL_MS>;
             require-prior-idle-ms = <COMBO_IDLE_LANG_SEL_MS>;
             key-positions = <COMBO_LANG_EN_POS>;
-            layers = <BASE>;
+            layers = <BASE RU>;
             bindings = <&lang_en_os>;
         };
 
@@ -107,7 +104,7 @@
             timeout-ms = <COMBO_TIMEOUT_LANG_SEL_MS>;
             require-prior-idle-ms = <COMBO_IDLE_LANG_SEL_MS>;
             key-positions = <COMBO_LANG_RU_POS>;
-            layers = <BASE>;
+            layers = <BASE RU>;
             bindings = <&lang_ru_os>;
         };
     };
@@ -254,6 +251,287 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        ru_ef_ctrl: ru_ef_ctrl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_EF_CTRL";
+            bindings = <&kp LCTRL>, <&kp A>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_yeru_alt: ru_yeru_alt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_YERU_ALT";
+            bindings = <&kp LALT>, <&kp S>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_ve_shift: ru_ve_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_VE_SHIFT";
+            bindings = <&kp LSHFT>, <&kp D>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_a_gui: ru_a_gui {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_A_GUI";
+            bindings = <&kp LEFT_GUI>, <&kp F>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_R THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_o_gui: ru_o_gui {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_O_GUI";
+            bindings = <&kp RIGHT_GUI>, <&kp J>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_el_shift: ru_el_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_EL_SHIFT";
+            bindings = <&kp RSHFT>, <&kp K>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_de_alt: ru_de_alt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_DE_ALT";
+            bindings = <&kp RIGHT_ALT>, <&kp L>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_zhe_ctrl: ru_zhe_ctrl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_ZHE_CTRL";
+            bindings = <&kp RCTRL>, <&kp SEMICOLON>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            flavor = "balanced";
+            hold-trigger-key-positions = <KEYS_L THUMBS>;
+            hold-trigger-on-release;
+        };
+
+        ru_yot: ru_yot {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Q>;
+            label = "RU_YOT";
+        };
+
+        ru_tse: ru_tse {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp W>;
+            label = "RU_TSE";
+        };
+
+        ru_u: ru_u {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp E>;
+            label = "RU_U";
+        };
+
+        ru_ka: ru_ka {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp R>;
+            label = "RU_KA";
+        };
+
+        ru_ie: ru_ie {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp T>;
+            label = "RU_IE";
+        };
+
+        ru_en: ru_en {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Y>;
+            label = "RU_EN";
+        };
+
+        ru_ghe: ru_ghe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp U>;
+            label = "RU_GHE";
+        };
+
+        ru_sha: ru_sha {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp I>;
+            label = "RU_SHA";
+        };
+
+        ru_shcha: ru_shcha {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp O>;
+            label = "RU_SHCHA";
+        };
+
+        ru_ze: ru_ze {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp P>;
+            label = "RU_ZE";
+        };
+
+        ru_pe: ru_pe {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp G>;
+            label = "RU_PE";
+        };
+
+        ru_er: ru_er {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp H>;
+            label = "RU_ER";
+        };
+
+        ru_ya: ru_ya {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp Z>;
+            label = "RU_YA";
+        };
+
+        ru_che: ru_che {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp X>;
+            label = "RU_CHE";
+        };
+
+        ru_es: ru_es {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C>;
+            label = "RU_ES";
+        };
+
+        ru_em: ru_em {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp V>;
+            label = "RU_EM";
+        };
+
+        ru_i: ru_i {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp B>;
+            label = "RU_I";
+        };
+
+        ru_te: ru_te {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp N>;
+            label = "RU_TE";
+        };
+
+        ru_soft: ru_soft {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp M>;
+            label = "RU_SOFT";
+        };
+
+        ru_be: ru_be {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>;
+            label = "RU_BE";
+        };
+
+        ru_yu: ru_yu {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>;
+            label = "RU_YU";
+        };
+
+        ru_dot_comment: ru_dot_comment {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_DOT_COMMENT";
+            bindings = <&comment>, <&kp SLASH>;
+
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+
+        ru_eh_quote: ru_eh_quote {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RU_EH_QUOTE";
+            bindings = <&kp DOUBLE_QUOTES>, <&kp SQT>;
+
+            #binding-cells = <0>;
+            quick-tap-ms = <100>;
+            global-quick-tap;
+            flavor = "tap-preferred";
+            tapping-term-ms = <170>;
+        };
     };
 
     keymap {
@@ -265,6 +543,16 @@
          &kp Q         &kp W        &kp E         &kp R            &kp T        &kp Y    &kp U             &kp I         &kp O             &kp P
          &hml LCTRL A  &hml LALT S  &hml LSHFT D  &hml LEFT_GUI F  &kp G        &kp H    &hmr RIGHT_GUI J  &hmr RSHFT K  &hmr RIGHT_ALT L  &hmr RCTRL SEMICOLON
 &kp TAB  &kp Z         &kp X        &kp C         &kp V            &kp B        &kp N    &kp M             &kp COMMA     &kp DOT           &comment_or 0 SLASH   &mt DOUBLE_QUOTES SQT
+                                    &mo DIG       &lt NAV ESC      &kp SPACE    &kp RET  &lt SYS ESC       &mo DIG
+            >;
+        };
+
+        Russian {
+            label = "RU";
+            bindings = <
+         &ru_yot       &ru_tse           &ru_u         &ru_ka         &ru_ie      &ru_en   &ru_ghe         &ru_sha         &ru_shcha       &ru_ze
+         &ru_ef_ctrl   &ru_yeru_alt      &ru_ve_shift  &ru_a_gui      &ru_pe      &ru_er   &ru_o_gui       &ru_el_shift    &ru_de_alt      &ru_zhe_ctrl
+&kp TAB  &ru_ya        &ru_che           &ru_es        &ru_em         &ru_i       &ru_te   &ru_soft        &ru_be          &ru_yu          &ru_dot_comment  &ru_eh_quote
                                     &mo DIG       &lt NAV ESC      &kp SPACE    &kp RET  &lt SYS ESC       &mo DIG
             >;
         };
@@ -293,7 +581,7 @@
             label = "SYSTEM";
             bindings = <
                 &kp F1        &kp F2        &kp F3        &kp F4        &kp F5          &kp F6        &kp F7        &kp F8      &kp F9      &kp F10
-                &soft_off     &trans        &trans        &kp F23       &kp F24         &kp C_MUTE    &kp C_PP      &trans      &trans      &trans
+                &trans        &trans        &trans        &kp F23       &kp F24         &kp C_MUTE    &kp C_PP      &trans      &trans      &trans
 &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &out OUT_BLE  &out OUT_USB    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &trans   &trans
                                             &trans        &trans        &trans          &trans        &trans        &trans
             >;
