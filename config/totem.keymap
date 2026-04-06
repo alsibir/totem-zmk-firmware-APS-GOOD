@@ -33,9 +33,8 @@
 /* Timeless homerow mods */
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
 
-#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 LB5
-#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4 RB5
-#define THUMBS LH2 LH1 LH0 RH0 RH1 RH2
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4 LB5  // left hand
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4 RB5  // right hand
 
 &mt {
     quick-tap-ms = <100>;
@@ -94,6 +93,18 @@
     };
 
     macros {
+        /**
+         * Temporarily switches to a layer (`&mo`) while a modifier is held.
+         * Analogous to QMK's `LM()`, using a parameterized macro.
+         *
+         * Params:
+         *  1. Layer to switch to
+         *  2. Modifier to press while layer is active
+         *
+         * Example:
+         *  `&lm NUM_LAYER LSHIFT`
+         */
+
         lm: lm {
             compatible = "zmk,behavior-macro-two-param";
             wait-ms = <0>;
@@ -158,13 +169,13 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <25>;
+            tap-ms  = <25>;
             bindings
-                = <&macro_press &kp LALT>
+                = <&macro_press     &kp LALT>
                 , <&macro_wait_time 10>
-                , <&macro_tap &kp LSHFT>
+                , <&macro_tap       &kp LSHFT>
                 , <&macro_wait_time 10>
-                , <&macro_release &kp LALT>
+                , <&macro_release   &kp LALT>
                 ;
         };
 
@@ -172,18 +183,20 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
-            tap-ms = <25>;
+            tap-ms  = <25>;
             bindings
-                = <&macro_press &kp LALT>
+                = <&macro_press     &kp LALT>
                 , <&macro_wait_time 10>
-                , <&macro_tap &kp RSHFT>
+                , <&macro_tap       &kp RSHFT>
                 , <&macro_wait_time 10>
-                , <&macro_release &kp LALT>
+                , <&macro_release   &kp LALT>
                 ;
         };
     };
 
     behaviors {
+        // this is homerow mod that works identical to urob's one, but this one allows visual editor to understand
+
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             label = "HML";
@@ -225,113 +238,105 @@
         ru_ef_ctrl: ru_ef_ctrl {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_EF_CTRL";
-            bindings = <&kp LEFT_CONTROL>, <&kp A>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp LCTRL &kp A>;
         };
 
         ru_yeru_alt: ru_yeru_alt {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_YERU_ALT";
-            bindings = <&kp LEFT_ALT>, <&kp S>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp LALT &kp S>;
         };
 
         ru_ve_shift: ru_ve_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_VE_SHIFT";
-            bindings = <&kp LEFT_SHIFT>, <&kp D>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp LSHFT &kp D>;
         };
 
         ru_a_gui: ru_a_gui {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_A_GUI";
-            bindings = <&kp LEFT_GUI>, <&kp F>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_R THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp LEFT_GUI &kp F>;
         };
 
         ru_o_gui: ru_o_gui {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_O_GUI";
-            bindings = <&kp RIGHT_GUI>, <&kp J>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp RIGHT_GUI &kp J>;
         };
 
         ru_el_shift: ru_el_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_EL_SHIFT";
-            bindings = <&kp RIGHT_SHIFT>, <&kp K>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp RSHFT &kp K>;
         };
 
         ru_de_alt: ru_de_alt {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_DE_ALT";
-            bindings = <&kp RIGHT_ALT>, <&kp L>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp RIGHT_ALT &kp L>;
         };
 
         ru_zhe_ctrl: ru_zhe_ctrl {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_ZHE_CTRL";
-            bindings = <&kp RIGHT_CONTROL>, <&kp SEMICOLON>;
-
             #binding-cells = <0>;
+            flavor = "balanced";
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
-            flavor = "balanced";
             hold-trigger-key-positions = <KEYS_L THUMBS>;
             hold-trigger-on-release;
+            bindings = <&kp RCTRL &kp SEMICOLON>;
         };
 
         ru_yot: ru_yot {
@@ -477,30 +482,28 @@
         ru_yu: ru_yu {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp PERIOD>;
+            bindings = <&kp DOT>;
             label = "RU_YU";
         };
 
         ru_dot_comment: ru_dot_comment {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_DOT_COMMENT";
-            bindings = <&comment>, <&kp SLASH>;
-
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
             flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&comment &kp SLASH>;
         };
 
         ru_eh_quote: ru_eh_quote {
             compatible = "zmk,behavior-hold-tap";
             label = "RU_EH_QUOTE";
-            bindings = <&kp DOUBLE_QUOTES>, <&kp SINGLE_QUOTE>;
-
             #binding-cells = <0>;
-            quick-tap-ms = <100>;
-            global-quick-tap;
             flavor = "tap-preferred";
             tapping-term-ms = <170>;
+            quick-tap-ms = <100>;
+            global-quick-tap;
+            bindings = <&kp DOUBLE_QUOTES &kp SQT>;
         };
     };
 
@@ -533,7 +536,7 @@
         &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &mmv MOVE_UP           &trans           &trans    &mkp MCLK  &kp HOME      &kp UP    &kp END        &kt PAGE_UP
         &trans                &mmv MOVE_LEFT        &mmv MOVE_DOWN         &mmv MOVE_RIGHT  &trans    &mkp LCLK  &kp LEFT      &kp DOWN  &kp RIGHT      &none
 &trans  &trans                &trans                &trans                 &trans           &trans    &mkp RCLK  &kp LA(LEFT)  &none     &kp LA(RIGHT)  &kt PAGE_DOWN  &kp CAPSLOCK
-                              &trans                &trans                 &trans           &trans    &trans      &trans
+                              &trans                &trans                 &trans           &trans     &trans      &trans
             >;
         };
 
