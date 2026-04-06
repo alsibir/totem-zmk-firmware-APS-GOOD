@@ -51,32 +51,32 @@ parse_config:
     "&ru_shcha": "Щ"
     "&ru_ze": "З"
 
-    "&ru_ef_ctrl":
+    "&ru_ef_ctrl LCTRL A":
       t: "Ф"
       h: "Ctl"
-    "&ru_yeru_alt":
+    "&ru_yeru_alt LALT S":
       t: "Ы"
       h: "Alt"
-    "&ru_ve_shift":
+    "&ru_ve_shift LSHFT D":
       t: "В"
       h: "Sft"
-    "&ru_a_gui":
+    "&ru_a_gui LEFT_GUI F":
       t: "А"
       h: "Gui"
 
     "&ru_pe": "П"
     "&ru_er": "Р"
 
-    "&ru_o_gui":
+    "&ru_o_gui RIGHT_GUI J":
       t: "О"
       h: "Gui"
-    "&ru_el_shift":
+    "&ru_el_shift RSHFT K":
       t: "Л"
       h: "Sft"
-    "&ru_de_alt":
+    "&ru_de_alt RIGHT_ALT L":
       t: "Д"
       h: "AGr"
-    "&ru_zhe_ctrl":
+    "&ru_zhe_ctrl RCTRL SEMICOLON":
       t: "Ж"
       h: "Ctl"
 
@@ -90,10 +90,10 @@ parse_config:
     "&ru_be": "Б"
     "&ru_yu": "Ю"
 
-    "&ru_dot_comment":
+    "&ru_dot_comment 0 SLASH":
       t: "."
       h: "/*"
-    "&ru_eh_quote":
+    "&ru_eh_quote DOUBLE_QUOTES SQT":
       t: "Э"
       h: "\""
 
