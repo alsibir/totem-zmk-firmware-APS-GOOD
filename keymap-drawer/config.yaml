@@ -28,6 +28,17 @@ draw_config:
     rel_h: 12.0
     rx: 4.0
     ry: 4.0
+  #   svg_extra_style: "
+  # @media (prefers-color-scheme: dark) {
+  # svg.keymap { fill: #dca448; }
+  # rect.key { fill: #1e1e1e; }
+  # rect.key, rect.combo { stroke: #122532; }
+  # rect.combo, rect.combo-separate { fill: #2e4857; }
+  # rect.held, rect.combo.held { fill: #5b3131; }
+  # text.label, text.footer { stroke: #331d36;
+  #                           stroke-width: 0; }
+  # text.trans { fill: #7e8184; }
+  # path.combo { stroke: #7f7f7f; }"
   footer_text: ""
   shrink_wide_legends: 7
   style_layer_activators: true
@@ -35,68 +46,10 @@ draw_config:
   glyph_hold_size: 12
   glyph_shifted_size: 10
   glyphs: {}
-
 parse_config:
   preprocess: true
   skip_binding_parsing: false
-  raw_binding_map:
-    "&ru_yot": "Й"
-    "&ru_tse": "Ц"
-    "&ru_u": "У"
-    "&ru_ka": "К"
-    "&ru_ie": "Е"
-    "&ru_en": "Н"
-    "&ru_ghe": "Г"
-    "&ru_sha": "Ш"
-    "&ru_shcha": "Щ"
-    "&ru_ze": "З"
-
-    "&ru_ef_ctrl LCTRL A":
-      t: "Ф"
-      h: "Ctl"
-    "&ru_yeru_alt LALT S":
-      t: "Ы"
-      h: "Alt"
-    "&ru_ve_shift LSHFT D":
-      t: "В"
-      h: "Sft"
-    "&ru_a_gui LEFT_GUI F":
-      t: "А"
-      h: "Gui"
-
-    "&ru_pe": "П"
-    "&ru_er": "Р"
-
-    "&ru_o_gui RIGHT_GUI J":
-      t: "О"
-      h: "Gui"
-    "&ru_el_shift RSHFT K":
-      t: "Л"
-      h: "Sft"
-    "&ru_de_alt RIGHT_ALT L":
-      t: "Д"
-      h: "AGr"
-    "&ru_zhe_ctrl RCTRL SEMICOLON":
-      t: "Ж"
-      h: "Ctl"
-
-    "&ru_ya": "Я"
-    "&ru_che": "Ч"
-    "&ru_es": "С"
-    "&ru_em": "М"
-    "&ru_i": "И"
-    "&ru_te": "Т"
-    "&ru_soft": "Ь"
-    "&ru_be": "Б"
-    "&ru_yu": "Ю"
-
-    "&ru_dot_comment 0 SLASH":
-      t: "."
-      h: "/*"
-    "&ru_eh_quote DOUBLE_QUOTES SQT":
-      t: "Э"
-      h: "\""
-
+  raw_binding_map: {}
   sticky_label: sticky
   toggle_label: toggle
   tap_toggle_label: tap-toggle
@@ -104,7 +57,6 @@ parse_config:
     t: ▽
     type: trans
   mark_alternate_layer_activators: false
-
   modifier_fn_map:
     left_ctrl: Ctl
     right_ctrl: Ctl
@@ -119,10 +71,8 @@ parse_config:
     special_combinations:
       left_ctrl+left_alt+left_gui+left_shift: Hyper
       left_ctrl+left_alt+left_shift: Meh
-
   qmk_remove_keycode_prefix:
     - KC_
-
   qmk_keycode_map:
     XXXXXXX: ""
     "NO": ""
@@ -190,9 +140,7 @@ parse_config:
     GT: ">"
     QUESTION: "?"
     QUES: "?"
-
   zmk_remove_keycode_prefix: []
-
   zmk_keycode_map:
     EXCLAMATION: "!"
     EXCL: "!"
@@ -295,7 +243,6 @@ parse_config:
     "&fun_arrow_right": "->"
     "&less_or_equal": "<="
     KP_MULTIPLY: "*"
-
   zmk_combos: {}
   zmk_preamble: "#define KEYMAP_DRAWER"
   zmk_additional_includes: []
