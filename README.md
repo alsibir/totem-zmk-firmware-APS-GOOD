@@ -42,9 +42,7 @@
 
 
 #### Слой Base
-![totem_#g1057_01](img%20%20/totem_%23g353_01.png)
-
-
+![totem_#g1057_01](img/totem_#g353_01.png)
 
 #### Слой Digits
 
