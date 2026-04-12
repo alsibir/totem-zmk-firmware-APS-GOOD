@@ -42,10 +42,6 @@
 
 
 
-#### Схема `totem_#Combos_01.png`
-
-![totem_#Combos_01](img%20%20/totem_%23Combos_01.png)
-
 #### Схема `totem_#g1057_01.png`
 
 ![totem_#g1057_01](img%20%20/totem_%23g1057_01.png)
@@ -57,6 +53,8 @@
 #### Схема `totem_#g1392_01.png`
 
 ![totem_#g1392_01](img%20%20/totem_%23g1392_01.png)
+
+### Combos
 
 #### Схема `totem_#g1637_01.png`
 
