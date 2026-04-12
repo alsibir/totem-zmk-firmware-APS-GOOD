@@ -42,12 +42,6 @@
 
 
 
-#### Схема `totem_#g718_01.png`
-
-![totem_#g718_01](img/totem_%23g718_01.png)
-
-### Каталог `/img  /`
-
 #### Схема `totem_#Combos_01.png`
 
 ![totem_#Combos_01](img%20%20/totem_%23Combos_01.png)
