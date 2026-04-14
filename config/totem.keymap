@@ -108,9 +108,8 @@
         };
 
         combo_yo_ke {
-            timeout-ms = <180>;
-            require-prior-idle-ms = <120>;
-            key-positions = <2 17>;
+            timeout-ms = <220>;
+            key-positions = <3 4>;
             layers = <BASE>;
             bindings = <&kp GRAVE>;
         };
