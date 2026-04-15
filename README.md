@@ -39,37 +39,33 @@
 
 ![04_system_layer](img/04_system_layer.png)
 
-### 05. Заголовочный рисунок раздела комбо
+### Combos
 
-Файл `05_Combos_header.png` является служебным графическим заголовком раздела комбо.
-
-![05_Combos_header](img/05_Combos_header.png)
-
-### 06. Комбо `Backspace`
+#### Backspace
 
 Файл `06_backspace_combo.png` иллюстрирует комбо для ввода `Backspace`.
 
 ![06_backspace_combo](img/06_backspace_combo.png)
 
-### 07. Комбо `Alt+Backspace`
+#### Alt+Backspace
 
 Файл `07_altbackspace_combo.png` иллюстрирует комбо для ввода `Alt+Backspace`.
 
 ![07_altbackspace_combo](img/07_altbackspace_combo.png)
 
-### 08. Комбо `Left Shift`
+#### Left Shift
 
 Файл `08_leftshift_combo.png` иллюстрирует комбо для sticky `Shift`.
 
 ![08_leftshift_combo](img/08_leftshift_combo.png)
 
-### 09. Комбо `Caps Word`
+#### Caps Word
 
 Файл `09_capsword_combo.png` иллюстрирует комбо для включения режима `Caps Word`.
 
 ![09_capsword_combo](img/09_capsword_combo.png)
 
-### 10. Комбо перехода на системный слой
+#### System
 
 Файл `10_system_combo.png` иллюстрирует комбо, используемое для перехода на системный слой.
 
@@ -228,9 +224,9 @@
 
 Для буквы `Ё/ё` в прошивке настроено отдельное комбо на основном слое.
 
-| Что требуется ввести | Как нажимать                     |
-| -------------------- | -------------------------------- |
-| `ё`                  | одновременно `R + T`             |
+| Что требуется ввести | Как нажимать                              |
+| -------------------- | ----------------------------------------- |
+| `ё`                  | одновременно `R + T`                      |
 | `Ё`                  | удерживать `Shift`, одновременно нажать `R + T` |
 
 Практически это работает так:
